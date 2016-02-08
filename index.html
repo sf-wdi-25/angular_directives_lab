@@ -22,7 +22,7 @@
     <span>Search Pok&#233;mon:</span>
     <input type="text" data-ng-model="searchPokemon">
 
-    <div data-ng-repeat="poke in pc.pokemonList | orderBy:'nDex' | filter:searchPokemon">
+    <div data-ng-repeat="poke in pc.pokemonList | orderBy:'id' | filter:searchPokemon">
       <p>{{poke.name}}</p>
     </div>
 
