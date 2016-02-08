@@ -45,7 +45,7 @@ Assume you have the following Angular app set up for a trainer to manage their P
 	<script type="text/javascript" src="app.js"></script>
 
   </head>
-  <body data-ng-controller="PokemonController as pokemon">
+  <body data-ng-controller="PokemonController as pc">
 
 	  ...
 
@@ -103,19 +103,19 @@ You want the user to be able to input their name in a form field so that the app
 ```html
 <!-- index.html -->
 
-<body data-ng-controller="PokemonController as pokemon">
+<body data-ng-controller="PokemonController as pc">
 
-  <h2>Trainer: {{pokemon.trainer.name}}</h2>
+  <h2>Trainer: {{pc.trainer.name}}</h2>
 
   <span>Enter your name:</span>
-  <input type="text" data-ng-model="pokemon.trainer.name">
+  <input type="text" data-ng-model="pc.trainer.name">
 
 </body>
 ```
 
-This "binds" the value of `pokemon.trainer.name` between the form input and the `h2` tag. Whenever the user types something in the form, the `h2` tag's text will automatically update.
+This "binds" the value of `pc.trainer.name` between the form input and the `h2` tag. Whenever the user types something in the form, the `h2` tag's text will automatically update.
 
-Using `ngModel` with `pokemon.trainer.name` adds a `trainer` object to `vm`. If you were to inspect `vm` using the debugger, it would look something like this:
+Using `ngModel` with `pc.trainer.name` adds a `trainer` object to `vm`. If you were to inspect `vm` using the debugger, it would look something like this:
 
 ```js
 vm= {
@@ -133,12 +133,12 @@ You can set a default value in the Angular templating parameters:
 ```html
 <!-- index.html -->
 
-<body data-ng-controller="PokemonController as pokemon">
+<body data-ng-controller="PokemonController as pc">
 
-  <h2>Trainer: {{pokemon.trainer.name || "Ash"}}</h2>
+  <h2>Trainer: {{pc.trainer.name || "Ash"}}</h2>
 
   <span>Enter your name:</span>
-  <input type="text" ng-model="pokemon.trainer.name">
+  <input type="text" ng-model="pc.trainer.name">
 
 </body>
 ```
@@ -180,9 +180,9 @@ You can use `ngRepeat` to iterate through the collection of Pokémon and display
 ```html
 <!-- index.html -->
 
-<body data-ng-controller="PokemonCtrl as pokemon">
+<body data-ng-controller="PokemonCtrl as pc">
 
-  <div data-ng-repeat="poke in pokemon.pokemonList">
+  <div data-ng-repeat="poke in pc.pokemonList">
     <p>{{poke.name}}</p>
   </div>
 
@@ -198,9 +198,9 @@ You can use the <a href="https://docs.angularjs.org/api/ng/filter/orderBy" targe
 ```html
 <!-- index.html -->
 
-<body data-ng-controller="PokemonCtrl as pokemon">
+<body data-ng-controller="PokemonCtrl as pc">
 
-  <div data-ng-repeat="poke in pokemon.pokemonList | orderBy:'nDex'">
+  <div data-ng-repeat="poke in pc.pokemonList | orderBy:'id'">
     <p>{{poke.name}}</p>
   </div>
 
@@ -212,12 +212,12 @@ You can use the <a href="https://docs.angularjs.org/api/ng/filter/filter" target
 ```html
 <!-- index.html -->
 
-<body data-ng-controller="PokemonCtrl as pokemon">
+<body data-ng-controller="PokemonCtrl as pc">
 
   <span>Search Pok&#233;mon:</span>
   <input type="text" data-ng-model="searchPokemon">
 
-  <div data-ng-repeat="poke in pokemon.pokemonList | orderBy:'nDex' | filter:searchPokemon">
+  <div data-ng-repeat="poke in pc.pokemonList | orderBy:'id' | filter:searchPokemon">
     <p>{{poke.name}}</p>
   </div>
 
